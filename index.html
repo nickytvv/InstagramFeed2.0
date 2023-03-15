@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+  <style>
+    .modal-open {
+        overflow: hidden;
+    }
+
+    .modal-open .modal-backdrop {
+        opacity: 1 !important;
+    }
+
+    .modal-open .container {
+        filter: blur(3px);
+        -webkit-filter: blur(3px);
+    }
+</style>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Instagram</a>
+        
+        <div class="ml-auto">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+  <a class="nav-link btn btn-primary mr-2 text-white" href="#" data-toggle="modal" data-target="#newPostModal">Create new post</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Settings
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Accessibility</a>
+                        <a class="dropdown-item" href="#">Add and Data</a>
+                        <a class="dropdown-item text-danger" href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+<!-- New Post Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="newPostModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newPostForm">
+                    <div class="form-group">
+                        <label for="postCaption">Caption</label>
+                        <input type="text" class="form-control" id="postCaption" placeholder="Enter caption">
+                    </div>
+                    <div class="form-group">
+                        <label for="postImage">Upload Image</label>
+                        <input type="file" class="form-control-file" id="postImage" accept="image/*">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="submitPost">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Grid and Single View Options -->
+    <div class="container mt-3 text-center">
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary">
+                <i class="fas fa-th"></i> <!-- Grid View Icon -->
+            </button>
+            <button type="button" class="btn btn-secondary">
+                <i class="fas fa-list"></i> <!-- Single View Icon -->
+            </button>
+        </div>
+    </div>
+
+    <!-- Content (Grid and Single View) -->
+    <div class="container mt-4">
+        <div id="grid-view" class="row">
+            <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+                      <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+                      <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+                      <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+                      <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+                      <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+                      <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+                      <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+                      <div class="col-4 col-md-4 col-lg-4 mb-4">
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="img-fluid">
+    </div>
+        </div>
+<div id="single-view">
+    <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+  <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+  <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+  <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+  <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+  <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+  <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+  <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+  <div class="card mb-4">
+        <!-- Post Header -->
+        <div class="card-header d-flex align-items-center">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Profile picture" class="rounded-circle" width="40" height="40">
+            <span class="ml-2 font-weight-bold">username</span>
+        </div>
+        <!-- Post Image -->
+        <img src="https://www.lookoutmv.com/wp-content/plugins/instagram-feed/img/thumb-placeholder.png" alt="Image description" class="card-img-top">
+        <!-- Post Actions -->
+        <div class="card-body">
+            <div class="d-flex">
+                <i class="far fa-heart mr-3"></i>
+                <i class="far fa-comment mr-3"></i>
+                <i class="far fa-share-square"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Include jQuery and Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    <script>
+      document.getElementById('submitPost').addEventListener('click', function () {
+    const caption = document.getElementById('postCaption').value;
+    const imageFile = document.getElementById('postImage').files[0];
+
+    if (caption && imageFile) {
+        // Call your function to handle the form data here
+        // submitPost(caption, imageFile);
+
+        // Close the modal and reset the form
+        $('#newPostModal').modal('hide');
+        document.getElementById('newPostForm').reset();
+    } else {
+        alert('Please fill in both fields.');
+    }
+});
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const gridViewButton = document.querySelector('.fa-th');
+            const singleViewButton = document.querySelector('.fa-list');
+            const gridView = document.getElementById('grid-view');
+            const singleView = document.getElementById('single-view');
+
+            gridViewButton.addEventListener('click', function() {
+            gridView.classList.remove('d-none');
+            singleView.classList.add('d-none');
+        });
+
+        singleViewButton.addEventListener('click', function() {
+            gridView.classList.add('d-none');
+            singleView.classList.remove('d-none');
+        });
+
+        // Initialize with grid view
+        gridViewButton.click();
+    });
+</script>
+</body>
+</html>
